@@ -12,6 +12,7 @@ import { LoginDto } from './dto/login.dto';
 import { ResponseDto } from 'src/common/dto/response.dto';
 import { HttpExceptionFilter } from 'src/common/handle-exception/http-exception.filter';
 import { ApiTags } from '@nestjs/swagger';
+import { AccountEntity } from '../account/entities/account.entity';
 
 @ApiTags('auth')
 @UseFilters(HttpExceptionFilter)
@@ -21,7 +22,7 @@ export class AuthController {
 
   @Post('login')
   async login(@Body() infoRequest: LoginDto) {
-    const user = await this.authService.validateUser(
+    const user: AccountEntity = await this.authService.validateUser(
       infoRequest.phoneNumber,
       infoRequest.password,
     );

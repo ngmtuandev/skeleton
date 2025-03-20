@@ -3,6 +3,8 @@ import { CreateAccountDto } from './dto/create.account.dto';
 import { AccountEntity } from './entities/account.entity';
 import { AccountRepository } from './account.repository';
 import * as bcrypt from 'bcryptjs';
+import { plainToClass } from 'class-transformer';
+import { AccountDto } from './dto/account.dto';
 
 @Injectable()
 export class AccountService {
@@ -16,8 +18,11 @@ export class AccountService {
     });
   }
 
-  async getAllUsers(): Promise<AccountEntity[]> {
-    return this.usersRepository.findAll();
+  async getAllUsers(): Promise<AccountDto[]> {
+    const result = await this.usersRepository.findAll();
+
+    const resultConvertDto = plainToClass(AccountDto, result);
+    return resultConvertDto;
   }
 
   async getUserByEmail(email: string): Promise<AccountEntity> {

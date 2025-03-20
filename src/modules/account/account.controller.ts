@@ -10,7 +10,7 @@ import {
 import { AccountService } from './account.service';
 import { CreateAccountDto } from './dto/create.account.dto';
 import { AccountEntity } from './entities/account.entity';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { HttpExceptionFilter } from 'src/common/handle-exception/http-exception.filter';
 import { ResponseDto } from 'src/common/dto/response.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
@@ -35,9 +35,11 @@ export class AccountController {
   }
 
   @Get()
+  @ApiBearerAuth()
   @UseGuards(JwtAuthGuard, new RoleGuard(ERole.ADMIN))
-  async getAllUsers(): Promise<AccountEntity[]> {
-    return this.accountService.getAllUsers();
+  async getAllUsers(): Promise<ResponseDto<any>> {
+    const results = await this.accountService.getAllUsers();
+    return new ResponseDto(200, 'Lấy danh sách người dùng thành công', results);
   }
 
   @Get(':email')

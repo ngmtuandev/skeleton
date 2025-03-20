@@ -10,6 +10,7 @@ async function bootstrap() {
     .setTitle('Trọ Tân Thịnh')
     .setDescription('Trọ Tân Thịnh - Long Khánh - Đồng Nai')
     .setVersion('1.0')
+    .addBearerAuth()
     .addTag('api')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);

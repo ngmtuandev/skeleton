@@ -11,6 +11,7 @@ import { AccountService } from '../account/account.service';
 
 @Module({
   imports: [
+    ConfigModule,
     AccountModule,
     PassportModule,
     JwtModule.registerAsync({
@@ -18,11 +19,12 @@ import { AccountService } from '../account/account.service';
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
         secret: configService.get<string>('JWT_SECRET'),
-        signOptions: { expiresIn: configService.get<string>('JWT_EXPIRES_IN') },
+        signOptions: { expiresIn: '1h' },
       }),
     }),
   ],
   providers: [AuthService, JwtStrategy, JwtService, AccountService, MyService],
   controllers: [AuthController],
+  exports: [AuthService, AuthModule],
 })
 export class AuthModule {}

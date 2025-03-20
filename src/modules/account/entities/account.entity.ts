@@ -11,6 +11,7 @@ export class AccountEntity extends BaseEntity {
     type: 'enum',
     enum: ETypeAccountEnum,
     default: ETypeAccountEnum.STUDENT,
+    nullable: true,
   })
   type: ETypeAccountEnum;
 
