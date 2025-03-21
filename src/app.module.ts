@@ -3,10 +3,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CacheModule } from '@nestjs/cache-manager';
-import { AccountModule } from './modules/account/account.module';
 import { ConfigModule } from '@nestjs/config';
-import { AuthModule } from './modules/auth/auth.module';
-import { UploadModule } from './modules/upload/upload.module';
+import {
+  AccountModule,
+  AcreageModule,
+  AuthModule,
+  ProvinceModule,
+  TypePropertyModule,
+  UploadModule,
+} from './modules/module';
 
 @Module({
   imports: [
@@ -31,6 +36,9 @@ import { UploadModule } from './modules/upload/upload.module';
     AccountModule,
     AuthModule,
     UploadModule,
+    TypePropertyModule,
+    AcreageModule,
+    ProvinceModule,
   ],
   controllers: [AppController],
   providers: [AppService],

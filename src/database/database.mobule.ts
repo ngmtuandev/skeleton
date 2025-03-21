@@ -1,8 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { AccountEntity } from 'src/modules/account/entities/account.entity';
-
+import {
+  AccountEntity,
+  AcreageEntity,
+  ProvinceEntity,
+  TypePropertyEntity,
+} from 'src/modules/entity';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -18,7 +22,12 @@ import { AccountEntity } from 'src/modules/account/entities/account.entity';
         username: configService.get<string>('DB_USER'),
         password: configService.get<string>('DB_PASS'),
         database: configService.get<string>('DB_NAME'),
-        entities: [AccountEntity],
+        entities: [
+          AccountEntity,
+          TypePropertyEntity,
+          AcreageEntity,
+          ProvinceEntity,
+        ],
         synchronize: true,
       }),
     }),

@@ -24,7 +24,7 @@ export class AccountController {
   constructor(private readonly accountService: AccountService) {}
 
   @Post()
-  async createUser(@Body() dto: CreateAccountDto): Promise<ResponseDto<any>> {
+  async create(@Body() dto: CreateAccountDto): Promise<ResponseDto<any>> {
     const result = await this.accountService.createUser(dto);
     const { password, ...userWithoutPassword } = result;
     return new ResponseDto(
@@ -37,13 +37,13 @@ export class AccountController {
   @Get()
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard, new RoleGuard(ERole.ADMIN))
-  async getAllUsers(): Promise<ResponseDto<any>> {
+  async getAll(): Promise<ResponseDto<any>> {
     const results = await this.accountService.getAllUsers();
     return new ResponseDto(200, 'Lấy danh sách người dùng thành công', results);
   }
 
   @Get(':email')
-  async getUserByEmail(@Param('email') email: string): Promise<AccountEntity> {
+  async getByEmail(@Param('email') email: string): Promise<AccountEntity> {
     return this.accountService.getUserByEmail(email);
   }
 }

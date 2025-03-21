@@ -1,3 +1,23 @@
+<!-- Link swagger local: http://localhost:1234/api#/ -->
+<!--
+
+Info .env demo test
+
+
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASS=Manhtuan123***
+DB_NAME=localhost
+
+PORT=1234
+
+JWT_SECRET=hellocacban_minhlanguyenmanhtuanday
+
+JWT_EXPIRES_IN= '1h'
+
+-->
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
