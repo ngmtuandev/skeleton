@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty } from 'class-validator';
 
-export class CreateProvinceDto {
+export class UpdateProvinceDto {
   @ApiProperty()
   @IsNotEmpty()
   name: string;

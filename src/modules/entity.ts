@@ -7,3 +7,4 @@ export * from './image-property/entities/image.property.entity';
 export * from './eviroment-arround/entities/enviroment.arround.entity';
 export * from './area-arround/entities/area.arround.entity';
 export * from './utility/entities/utility.entity';
+export * from './district/entities/district.entity';

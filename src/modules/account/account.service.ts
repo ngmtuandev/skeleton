@@ -12,7 +12,7 @@ export class AccountService {
 
   async createUser(dto: CreateAccountDto): Promise<AccountEntity> {
     const hashedPassword = await bcrypt.hash(dto.password, 10);
-    return this.usersRepository.createUser({
+    return this.usersRepository.create({
       ...dto,
       password: hashedPassword,
     });

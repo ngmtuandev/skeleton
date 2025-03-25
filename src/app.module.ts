@@ -9,6 +9,7 @@ import {
   AcreageModule,
   AreaArroundModule,
   AuthModule,
+  DistrictModule,
   EnviromentArroundModule,
   ImagePropertyModule,
   ProvinceModule,
@@ -24,17 +25,17 @@ import { CustomHttpExceptionFilter } from './filters/custom-http-exception.filte
     // config use env
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env', // Đọc từ file .env
+      envFilePath: '.env',
     }),
 
     // config database
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'Manhtuan123***',
-      database: 'postgres',
+      host: '203.145.47.225',
+      port: 3306,
+      username: 'tuandb',
+      password: 'tuandb',
+      database: 'tuandb',
       autoLoadEntities: true,
       synchronize: true,
     }),
@@ -49,11 +50,15 @@ import { CustomHttpExceptionFilter } from './filters/custom-http-exception.filte
     EnviromentArroundModule,
     AreaArroundModule,
     UtilityModule,
+    DistrictModule,
   ],
   controllers: [AppController],
-  providers: [AppService, {
-    provide: APP_FILTER,
-    useClass: CustomHttpExceptionFilter
-  }],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: CustomHttpExceptionFilter,
+    },
+  ],
 })
-export class AppModule { }
+export class AppModule {}

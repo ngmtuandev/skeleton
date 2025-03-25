@@ -37,7 +37,6 @@ export class UploadController {
     },
   })
   @ApiResponse({ status: 201, description: 'File uploaded thành công.' })
-  //   ===
   @Post()
   @UseInterceptors(
     FileInterceptor('file', { storage: CloudinaryStorageConfig }),

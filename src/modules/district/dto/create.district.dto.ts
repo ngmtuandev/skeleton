@@ -1,16 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Expose } from 'class-transformer';
 import { IsNotEmpty } from 'class-validator';
 
-export class CreateProvinceDto {
+export class CreateDistrictDto {
   @ApiProperty()
   @IsNotEmpty()
   name: string;
 
   @ApiProperty()
   @IsNotEmpty()
-  imageUrl: string;
-
-  @ApiProperty()
-  @IsNotEmpty()
-  isSuggess: boolean;
+  provinceId: string;
 }

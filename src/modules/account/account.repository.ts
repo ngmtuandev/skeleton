@@ -11,7 +11,7 @@ export class AccountRepository {
     private readonly accountRepository: Repository<AccountEntity>,
   ) {}
 
-  async createUser(dto: CreateAccountDto): Promise<AccountEntity> {
+  async create(dto: CreateAccountDto): Promise<AccountEntity> {
     const newUser = this.accountRepository.create(dto);
     return await this.accountRepository.save(newUser);
   }

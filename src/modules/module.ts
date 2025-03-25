@@ -9,3 +9,4 @@ export * from './image-property/image.property.module';
 export * from './eviroment-arround/enviroment.arround.module';
 export * from './area-arround/area.arround.module';
 export * from './utility/utility.module';
+export * from './district/district.module';

@@ -33,8 +33,6 @@ export class AuthService {
       phoneNumber: user.phoneNumber,
     };
 
-    console.log('JWT_SECRET:', this.configService.get<string>('JWT_SECRET')); // Kiểm tra JWT_SECRET
-
     const token = this.jwtService.sign(payload, {
       secret: this.configService.get<string>('JWT_SECRET'),
       expiresIn: '1h',
