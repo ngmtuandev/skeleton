@@ -12,6 +12,8 @@ import {
   TypePropertyModule,
   UploadModule,
 } from './modules/module';
+import { APP_FILTER } from '@nestjs/core';
+import { CustomHttpExceptionFilter } from './filters/custom-http-exception.filter';
 
 @Module({
   imports: [
@@ -41,6 +43,9 @@ import {
     ProvinceModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, {
+    provide: APP_FILTER,
+    useClass: CustomHttpExceptionFilter
+  }],
 })
-export class AppModule {}
+export class AppModule { }

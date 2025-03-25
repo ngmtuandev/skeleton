@@ -8,10 +8,10 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ResponseDto } from '../dto/response.dto';
 
+
 @Injectable()
 export class ResponseInterceptor<T>
-  implements NestInterceptor<T, ResponseDto<T>>
-{
+  implements NestInterceptor<T, ResponseDto<T>> {
   intercept(
     context: ExecutionContext,
     next: CallHandler<T>,
@@ -22,4 +22,7 @@ export class ResponseInterceptor<T>
       }),
     );
   }
+
+
+
 }

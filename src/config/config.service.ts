@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class MyService {
-  constructor(private configService: ConfigService) {}
+  constructor(private configService: ConfigService) { }
 
   getDatabaseUrl(): string | undefined {
     return this.configService.get<string>('DATABASE_URL');
