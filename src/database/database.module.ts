@@ -4,8 +4,12 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import {
   AccountEntity,
   AcreageEntity,
+  AreaArroundEntity,
+  EnviromentArroundEntity,
+  ImagePropertyEntity,
   ProvinceEntity,
   TypePropertyEntity,
+  UtilityEntity,
 } from 'src/modules/entity';
 @Module({
   imports: [
@@ -27,6 +31,10 @@ import {
           TypePropertyEntity,
           AcreageEntity,
           ProvinceEntity,
+          EnviromentArroundEntity,
+          ImagePropertyEntity,
+          AreaArroundEntity,
+          UtilityEntity,
         ],
         synchronize: true,
       }),

@@ -7,10 +7,14 @@ import { ConfigModule } from '@nestjs/config';
 import {
   AccountModule,
   AcreageModule,
+  AreaArroundModule,
   AuthModule,
+  EnviromentArroundModule,
+  ImagePropertyModule,
   ProvinceModule,
   TypePropertyModule,
   UploadModule,
+  UtilityModule,
 } from './modules/module';
 import { APP_FILTER } from '@nestjs/core';
 import { CustomHttpExceptionFilter } from './filters/custom-http-exception.filter';
@@ -41,6 +45,10 @@ import { CustomHttpExceptionFilter } from './filters/custom-http-exception.filte
     TypePropertyModule,
     AcreageModule,
     ProvinceModule,
+    ImagePropertyModule,
+    EnviromentArroundModule,
+    AreaArroundModule,
+    UtilityModule,
   ],
   controllers: [AppController],
   providers: [AppService, {
